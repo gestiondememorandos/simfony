@@ -1,0 +1,66 @@
+<?php
+
+namespace gestion\memorandosBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * Version
+ *
+ * @ORM\Table(name="version")
+ * @ORM\Entity
+ */
+class Version
+{
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="idVersion", type="string", length=255, nullable=false)
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="IDENTITY")
+     */
+    private $idversion;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="descripcion", type="string", length=255, nullable=false)
+     */
+    private $descripcion;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="cuenta", type="string", length=255, nullable=false)
+     */
+    private $cuenta;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="formato", type="string", length=255, nullable=false)
+     */
+    private $formato;
+
+    /**
+     * @var \Documento
+     *
+     * @ORM\ManyToOne(targetEntity="Documento")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="documento", referencedColumnName="idDocumento")
+     * })
+     */
+    private $documento;
+
+    /**
+     * @var \Version
+     *
+     * @ORM\ManyToOne(targetEntity="Version")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="version", referencedColumnName="idVersion")
+     * })
+     */
+    private $version;
+
+
+}

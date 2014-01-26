@@ -1,0 +1,35 @@
+<?php
+
+namespace gestion\memorandosBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * Directorio
+ *
+ * @ORM\Table(name="directorio")
+ * @ORM\Entity
+ */
+class Directorio
+{
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="descripcion", type="string", length=255, nullable=false)
+     */
+    private $descripcion;
+
+    /**
+     * @var \Paquete
+     *
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="NONE")
+     * @ORM\OneToOne(targetEntity="Paquete")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="idDirectorio", referencedColumnName="idPaquete")
+     * })
+     */
+    private $iddirectorio;
+
+
+}

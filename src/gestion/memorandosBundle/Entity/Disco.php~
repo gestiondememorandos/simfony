@@ -1,0 +1,42 @@
+<?php
+
+namespace gestion\memorandosBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * Disco
+ *
+ * @ORM\Table(name="disco")
+ * @ORM\Entity
+ */
+class Disco
+{
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="referencia", type="string", length=255, nullable=false)
+     */
+    private $referencia;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="descripcion", type="string", length=255, nullable=false)
+     */
+    private $descripcion;
+
+    /**
+     * @var \Deposito
+     *
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="NONE")
+     * @ORM\OneToOne(targetEntity="Deposito")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="idDisco", referencedColumnName="idDeposito")
+     * })
+     */
+    private $iddisco;
+
+
+}

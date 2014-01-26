@@ -1,0 +1,45 @@
+<?php
+
+namespace gestion\memorandosBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * Expedientedocumento
+ *
+ * @ORM\Table(name="expedientedocumento")
+ * @ORM\Entity
+ */
+class Expedientedocumento
+{
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="idExpDoc", type="string", length=255, nullable=false)
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="IDENTITY")
+     */
+    private $idexpdoc;
+
+    /**
+     * @var \Expediente
+     *
+     * @ORM\ManyToOne(targetEntity="Expediente")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="expediente", referencedColumnName="idExpediente")
+     * })
+     */
+    private $expediente;
+
+    /**
+     * @var \Documento
+     *
+     * @ORM\ManyToOne(targetEntity="Documento")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="documento", referencedColumnName="idDocumento")
+     * })
+     */
+    private $documento;
+
+
+}

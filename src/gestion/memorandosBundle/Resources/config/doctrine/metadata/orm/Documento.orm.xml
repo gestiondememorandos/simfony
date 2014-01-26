@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping http://doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
+  <entity name="Documento" table="documento">
+    <id name="iddocumento" type="string" column="idDocumento" length="255">
+      <generator strategy="IDENTITY"/>
+    </id>
+    <field name="titulo" type="string" column="titulo" length="255" nullable="true"/>
+    <field name="descripcion" type="string" column="descripcion" length="255" nullable="true"/>
+    <field name="edicion" type="string" column="edicion" length="255" nullable="true"/>
+    <field name="vigencia" type="string" column="vigencia" length="255" nullable="true"/>
+    <field name="estado" type="string" column="estado" length="255" nullable="true"/>
+    <field name="fechacreacion" type="string" column="fechaCreacion" length="255" nullable="true"/>
+    <field name="anexo" type="string" column="anexo" length="255" nullable="true"/>
+    <field name="tipo" type="string" column="tipo" length="255" nullable="true"/>
+    <field name="comentarios" type="text" column="comentarios" nullable="true"/>
+    <many-to-one field="tipodocumento" target-entity="Tipodocumento">
+      <join-columns>
+        <join-column name="tipoDocumento" referenced-column-name="idTipoDoc"/>
+      </join-columns>
+    </many-to-one>
+    <many-to-one field="tabladeretenciondocumental" target-entity="Tablaretenciondocumental">
+      <join-columns>
+        <join-column name="tabladeretenciondocumental" referenced-column-name="idTabla"/>
+      </join-columns>
+    </many-to-one>
+    <many-to-one field="orientacion" target-entity="Orientacion">
+      <join-columns>
+        <join-column name="orientacion" referenced-column-name="idOrientacion"/>
+      </join-columns>
+    </many-to-one>
+    <many-to-one field="documentobase" target-entity="Documento">
+      <join-columns>
+        <join-column name="documentobase" referenced-column-name="idDocumento"/>
+      </join-columns>
+    </many-to-one>
+  </entity>
+</doctrine-mapping>

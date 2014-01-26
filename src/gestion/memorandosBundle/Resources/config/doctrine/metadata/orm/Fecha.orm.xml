@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping http://doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
+  <entity name="Fecha" table="fecha">
+    <id name="idfecha" type="string" column="idFecha" length="255">
+      <generator strategy="IDENTITY"/>
+    </id>
+    <field name="dia" type="string" column="dia" length="4" nullable="false"/>
+    <field name="mes" type="string" column="mes" length="20" nullable="false"/>
+    <field name="anio" type="string" column="anio" length="4" nullable="false"/>
+  </entity>
+</doctrine-mapping>

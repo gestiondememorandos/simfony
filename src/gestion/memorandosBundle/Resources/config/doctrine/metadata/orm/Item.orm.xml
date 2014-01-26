@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping http://doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
+  <entity name="Item" table="item">
+    <id name="iditem" type="string" column="idItem" length="255">
+      <generator strategy="IDENTITY"/>
+    </id>
+    <field name="texto" type="text" column="texto" nullable="false"/>
+    <field name="hlnt" type="string" column="hlnt" length="255" nullable="false"/>
+    <many-to-one field="documento" target-entity="Documento">
+      <join-columns>
+        <join-column name="documento" referenced-column-name="idDocumento"/>
+      </join-columns>
+    </many-to-one>
+    <many-to-one field="contenido" target-entity="Contenido">
+      <join-columns>
+        <join-column name="contenido" referenced-column-name="idContenido"/>
+      </join-columns>
+    </many-to-one>
+  </entity>
+</doctrine-mapping>

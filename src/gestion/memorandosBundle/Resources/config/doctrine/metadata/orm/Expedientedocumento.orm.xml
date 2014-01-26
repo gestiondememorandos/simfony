@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping http://doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
+  <entity name="Expedientedocumento" table="expedientedocumento">
+    <id name="idexpdoc" type="string" column="idExpDoc" length="255">
+      <generator strategy="IDENTITY"/>
+    </id>
+    <many-to-one field="documento" target-entity="Documento">
+      <join-columns>
+        <join-column name="documento" referenced-column-name="idDocumento"/>
+      </join-columns>
+    </many-to-one>
+    <many-to-one field="expediente" target-entity="Expediente">
+      <join-columns>
+        <join-column name="expediente" referenced-column-name="idExpediente"/>
+      </join-columns>
+    </many-to-one>
+  </entity>
+</doctrine-mapping>

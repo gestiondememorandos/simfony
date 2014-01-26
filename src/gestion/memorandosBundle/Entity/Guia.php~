@@ -1,0 +1,35 @@
+<?php
+
+namespace gestion\memorandosBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * Guia
+ *
+ * @ORM\Table(name="guia")
+ * @ORM\Entity
+ */
+class Guia
+{
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="descripcion", type="string", length=255, nullable=false)
+     */
+    private $descripcion;
+
+    /**
+     * @var \Documento
+     *
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="NONE")
+     * @ORM\OneToOne(targetEntity="Documento")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="idGuia", referencedColumnName="idDocumento")
+     * })
+     */
+    private $idguia;
+
+
+}

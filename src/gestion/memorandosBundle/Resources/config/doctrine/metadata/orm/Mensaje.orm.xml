@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping http://doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
+  <entity name="Mensaje" table="mensaje">
+    <field name="respuestaa" type="string" column="respuestaA" length="50" nullable="true"/>
+    <one-to-one field="idmensaje" target-entity="Comunicacion">
+      <join-columns>
+        <join-column name="idMensaje" referenced-column-name="idComunicacion"/>
+      </join-columns>
+    </one-to-one>
+    <many-to-one field="conversacion" target-entity="Conversacion">
+      <join-columns>
+        <join-column name="conversacion" referenced-column-name="idConversacion"/>
+      </join-columns>
+    </many-to-one>
+  </entity>
+</doctrine-mapping>

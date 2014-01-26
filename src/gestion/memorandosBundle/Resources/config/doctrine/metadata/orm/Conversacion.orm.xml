@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping http://doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
+  <entity name="Conversacion" table="conversacion">
+    <id name="idconversacion" type="string" column="idConversacion" length="255">
+      <generator strategy="IDENTITY"/>
+    </id>
+    <field name="nombrecontacto" type="string" column="nombreContacto" length="255" nullable="true"/>
+    <field name="asunto" type="string" column="asunto" length="255" nullable="true"/>
+    <field name="fechaconversacion" type="string" column="fechaConversacion" length="255" nullable="true"/>
+    <many-to-one field="comunicacion" target-entity="Comunicacion">
+      <join-columns>
+        <join-column name="comunicacion" referenced-column-name="idComunicacion"/>
+      </join-columns>
+    </many-to-one>
+  </entity>
+</doctrine-mapping>

@@ -1,0 +1,79 @@
+<?php
+
+namespace gestion\memorandosBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * Tipodocumento
+ *
+ * @ORM\Table(name="tipodocumento")
+ * @ORM\Entity
+ */
+class Tipodocumento
+{
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="idTipoDoc", type="string", length=255, nullable=false)
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="IDENTITY")
+     */
+    private $idtipodoc;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="nombre", type="string", length=255, nullable=false)
+     */
+    private $nombre;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="descripcion", type="string", length=255, nullable=true)
+     */
+    private $descripcion;
+
+    /**
+     * @var \Orientacion
+     *
+     * @ORM\ManyToOne(targetEntity="Orientacion")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="orientacion", referencedColumnName="idOrientacion")
+     * })
+     */
+    private $orientacion;
+
+    /**
+     * @var \Plantilla
+     *
+     * @ORM\ManyToOne(targetEntity="Plantilla")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="plantilla", referencedColumnName="idPlantilla")
+     * })
+     */
+    private $plantilla;
+
+    /**
+     * @var \Guia
+     *
+     * @ORM\ManyToOne(targetEntity="Guia")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="guia", referencedColumnName="idGuia")
+     * })
+     */
+    private $guia;
+
+    /**
+     * @var \Listachequeo
+     *
+     * @ORM\ManyToOne(targetEntity="Listachequeo")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="listachequeo", referencedColumnName="idListaChequeo")
+     * })
+     */
+    private $listachequeo;
+
+
+}

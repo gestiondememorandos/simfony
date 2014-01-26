@@ -1,0 +1,62 @@
+<?php
+
+namespace gestion\memorandosBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * Unidadorganizacional
+ *
+ * @ORM\Table(name="unidadorganizacional")
+ * @ORM\Entity
+ */
+class Unidadorganizacional
+{
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="nombre", type="string", length=255, nullable=false)
+     */
+    private $nombre;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="descripcion", type="string", length=255, nullable=true)
+     */
+    private $descripcion;
+
+    /**
+     * @var \Edificio
+     *
+     * @ORM\ManyToOne(targetEntity="Edificio")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="edificio", referencedColumnName="idEdificio")
+     * })
+     */
+    private $edificio;
+
+    /**
+     * @var \Unidadorganizacional
+     *
+     * @ORM\ManyToOne(targetEntity="Unidadorganizacional")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="unidadorganizacional", referencedColumnName="idUnidadOrganizacional")
+     * })
+     */
+    private $unidadorganizacional;
+
+    /**
+     * @var \Quien
+     *
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="NONE")
+     * @ORM\OneToOne(targetEntity="Quien")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="idUnidadOrganizacional", referencedColumnName="idQuien")
+     * })
+     */
+    private $idunidadorganizacional;
+
+
+}

@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping http://doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
+  <entity name="Anexo" table="anexo">
+    <id name="idanexo" type="string" column="idAnexo" length="255">
+      <generator strategy="IDENTITY"/>
+    </id>
+    <field name="ruta" type="string" column="ruta" length="255" nullable="true"/>
+    <many-to-one field="documento" target-entity="Documento">
+      <join-columns>
+        <join-column name="documento" referenced-column-name="idDocumento"/>
+      </join-columns>
+    </many-to-one>
+  </entity>
+</doctrine-mapping>

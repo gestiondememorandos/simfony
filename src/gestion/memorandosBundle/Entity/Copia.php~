@@ -1,0 +1,52 @@
+<?php
+
+namespace gestion\memorandosBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * Copia
+ *
+ * @ORM\Table(name="copia")
+ * @ORM\Entity
+ */
+class Copia
+{
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="idCopia", type="string", length=255, nullable=false)
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="IDENTITY")
+     */
+    private $idcopia;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="formato", type="string", length=255, nullable=false)
+     */
+    private $formato;
+
+    /**
+     * @var \Deposito
+     *
+     * @ORM\ManyToOne(targetEntity="Deposito")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="deposito", referencedColumnName="idDeposito")
+     * })
+     */
+    private $deposito;
+
+    /**
+     * @var \Producto
+     *
+     * @ORM\ManyToOne(targetEntity="Producto")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="producto", referencedColumnName="idProducto")
+     * })
+     */
+    private $producto;
+
+
+}

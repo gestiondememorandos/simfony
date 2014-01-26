@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping http://doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
+  <entity name="Version" table="version">
+    <id name="idversion" type="string" column="idVersion" length="255">
+      <generator strategy="IDENTITY"/>
+    </id>
+    <field name="descripcion" type="string" column="descripcion" length="255" nullable="false"/>
+    <field name="cuenta" type="string" column="cuenta" length="255" nullable="false"/>
+    <field name="formato" type="string" column="formato" length="255" nullable="false"/>
+    <many-to-one field="version" target-entity="Version">
+      <join-columns>
+        <join-column name="version" referenced-column-name="idVersion"/>
+      </join-columns>
+    </many-to-one>
+    <many-to-one field="documento" target-entity="Documento">
+      <join-columns>
+        <join-column name="documento" referenced-column-name="idDocumento"/>
+      </join-columns>
+    </many-to-one>
+  </entity>
+</doctrine-mapping>

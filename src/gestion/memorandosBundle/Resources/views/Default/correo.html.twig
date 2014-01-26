@@ -1,0 +1,235 @@
+{% extends '::base.html.twig' %}
+{% block title %}Geston de Memorandos{% endblock %}
+{% block body %}
+		{% block izquierda %}
+				<div class="ui-layout-unit-content ui-widget-content" style="position: relative; height: 823px; visibility: visible;">
+					<form id="izquierda" name="izquierda" method="post" action="/gestionMemorandos/inicioSecre.jsf" enctype="application/x-www-form-urlencoded">
+						<input type="hidden" name="izquierda" value="izquierda">
+						<center>
+							<div id="izquierda:j_idt15" class="ui-splitbutton ui-buttonset ui-widget">
+								<button id="izquierda:j_idt15_button" name="izquierda:j_idt15_button" class="ui-button ui-widget ui-state-default ui-corner-left ui-button-text-icon-left" onclick="PrimeFaces.ab({source:'izquierda:j_idt15'});return false;" type="submit" role="button" aria-disabled="false">
+									<span class="ui-button-icon-left ui-icon ui-icon-mail-closed">
+									</span>
+									<span class="ui-button-text">
+										Nuevo
+									</span>
+								</button>
+								<button id="izquierda:j_idt15_menuButton" name="izquierda:j_idt15_menuButton" type="button" class="ui-splitbutton-menubutton  ui-button ui-widget ui-state-default ui-corner-right ui-button-icon-only" role="button" aria-disabled="true">
+									<span class="ui-button-icon-left ui-icon ui-icon-triangle-1-s">
+									</span>
+									<span class="ui-button-text">
+										<div id="izquierda:j_idt15" class="ui-menu ui-menu-dynamic ui-widget ui-widget-content ui-corner-all ui-helper-clearfix ui-shadow" role="menu" style="z-index: 1003; display:block; top:205.71875px; left: 18.046875px;">
+											<ul class="ui-menu-list ui-helper-reset">
+												<li class="ui-menuitem ui-widget ui-corner-all" role="menuitem">
+													<a id="izquierda:j_idt16" class"ui-menuitem-link ui-corner-all" style="font-size: 0.8em" href="#" onclick="" >
+														<span class="ui-menuitem-icon ui-icon ui-icon-triangule-1-n">
+														</span>
+														<span class="ui-menuitem-text">
+															<select name="select1">
+																<option value="1">Number 1</option>
+																<option value="2"  selected="selected">Number 2</option>
+																<option value="3">Number 3</option>
+																<option value="4">Number 4</option>
+															</select>
+														</span>
+													</a>
+												</li>
+												
+											</ul>
+										</div>
+										
+										
+										
+									</span>
+								</button>
+							</div>
+						</center>
+						<hr id="izquierda:j_idt21" class="ui-separator ui-state-default ui-corner-all" style="width: 95%; height: 1px">
+						<div id="izquierda:j_idt22" class="ui-menu ui-widget ui-widget-content ui-corner-all ui-helper-clearfix" style="width:133px;font-size: 1.0em" role="menu">
+							<ul class="ui-menu-list ui-helper-reset">
+								<li class="ui-menuitem ui-widget ui-corner-all" role="menuitem">
+									<a id="izquierda:j_idt23" class="ui-menuitem-link ui-corner-all" href="javascript:void(0)" onclick="PrimeFaces.addSubmitParam('izquierda',{'izquierda:j_idt23':'izquierda:j_idt23'}).submit('izquierda');">
+										<span class="ui-menuitem-text">
+											<a href="{{path('gestionmemorandos_correo',{'codigo':'Recibido'})}}">Recibidos
+										</span>
+									</a>
+								</li>
+								<li class="ui-menuitem ui-widget ui-corner-all" role="menuitem">
+									<a id="izquierda:j_idt24" class="ui-menuitem-link ui-corner-all" href="javascript:void(0)" onclick="PrimeFaces.addSubmitParam('izquierda',{'izquierda:j_idt24':'izquierda:j_idt24'}).submit('izquierda');">
+										<span class="ui-menuitem-text">
+											href="{{path('gestionmemorandos_correo',{'codigo':'Enviado'})}}">Enviados
+										</span>
+									</a>
+								</li>
+								<li class="ui-menuitem ui-widget ui-corner-all" role="menuitem">
+									<a id="izquierda:j_idt25" class="ui-menuitem-link ui-corner-all" href="javascript:void(0)" onclick="PrimeFaces.addSubmitParam('izquierda',{'izquierda:j_idt25':'izquierda:j_idt25'}).submit('izquierda');">
+										<span class="ui-menuitem-text">
+											href="{{path('gestionmemorandos_correo',{'codigo':'Registrado'})}}">Registrados
+										</span>
+									</a>
+								</li>
+							</ul>
+						</div>
+						<hr id="izquierda:j_idt26" class="ui-separator ui-state-default ui-corner-all" style="width: 95%; height: 1px">
+						<div id="izquierda:j_idt27" class="ui-menu ui-widget ui-widget-content ui-corner-all ui-helper-clearfix" style="width:133px;font-size: 1.0em" role="menu">
+							<ul class="ui-menu-list ui-helper-reset">
+								<li class="ui-menuitem ui-widget ui-corner-all" role="menuitem">
+									<a id="izquierda:j_idt28" class="ui-menuitem-link ui-corner-all" href="javascript:void(0)" onclick="PrimeFaces.addSubmitParam('izquierda',{'izquierda:j_idt28':'izquierda:j_idt28'}).submit('izquierda');">
+										<span class="ui-menuitem-text">
+											Elaborados
+										</span>
+									</a>
+								</li>
+								<li class="ui-menuitem ui-widget ui-corner-all" role="menuitem">
+									<a id="izquierda:j_idt29" class="ui-menuitem-link ui-corner-all" href="javascript:void(0)" onclick="PrimeFaces.addSubmitParam('izquierda',{'izquierda:j_idt29':'izquierda:j_idt29'}).submit('izquierda');">
+										<span class="ui-menuitem-text">
+											Construidos
+										</span>
+									</a>
+								</li>
+								<li class="ui-menuitem ui-widget ui-corner-all" role="menuitem">
+									<a id="izquierda:j_idt30" class="ui-menuitem-link ui-corner-all" href="javascript:void(0)" onclick="PrimeFaces.addSubmitParam('izquierda',{'izquierda:j_idt30':'izquierda:j_idt30'}).submit('izquierda');">
+										<span class="ui-menuitem-text">
+											Redactados
+										</span>
+									</a>
+								</li>
+								<li class="ui-menuitem ui-widget ui-corner-all" role="menuitem">
+									<a id="izquierda:j_idt31" class="ui-menuitem-link ui-corner-all" href="javascript:void(0)" onclick="PrimeFaces.addSubmitParam('izquierda',{'izquierda:j_idt31':'izquierda:j_idt31'}).submit('izquierda');">
+										<span class="ui-menuitem-text">
+											Listos para enviar
+										</span>
+									</a>
+								</li>
+							</ul>
+						</div>
+						<hr id="izquierda:j_idt32" class="ui-separator ui-state-default ui-corner-all" style="width: 95%; height: 1px">
+					</center>
+				</form>
+			</div>
+		{% endblock %}
+		{% block derecha %}{% endblock %}
+		{% block centro %}
+					<form id="form" name="form" method="post" action="/gestionMemorandos/inicioSecre.jsf" enctype="application/x-www-form-urlencoded">
+						<input type="hidden" name="form" value="form">
+						<span id="form:growl">
+						</span>
+						<div id="form:bandejaEntrada" class="ui-datatable ui-widget">
+						<table role="grid">
+							<thead>
+								<tr>
+									<th class="ui-datatable-header ui-widget-header" colspan="5">  
+										Recibidos
+									</th>
+								</tr>
+								<tr role="row">
+									<th id="form:bandejaEntrada:estadoCom" class="ui-state-default" role="columnheader">
+										<div class="ui-dt-c">
+											<span>
+												Leido
+											</span>
+										</div>
+									</th>
+									<th id="form:bandejaEntrada:model" class="ui-state-default ui-filter-column" role="columnheader">
+										<div class="ui-dt-c">
+											<span>
+												Remitente
+											</span>
+											<input id="form:bandejaEntrada:model:filter" name="form:bandejaEntrada:model:filter" class="ui-column-filter ui-inputfield ui-inputtext ui-widget ui-state-default ui-corner-all" value="" autocomplete="off" role="textbox" aria-disabled="false" aria-readonly="false" aria-multiline="false">
+										</div>
+									</th>
+									<th id="form:bandejaEntrada:year" class="ui-state-default" role="columnheader">
+										<div class="ui-dt-c">
+											<span>
+												Asunto
+											</span>
+										</div>
+									</th>
+									<th id="form:bandejaEntrada:tipoCom" class="ui-state-default ui-sortable-column" role="columnheader">
+										<div class="ui-dt-c">
+											<span class="ui-sortable-column-icon ui-icon ui-icon-carat-2-n-s">
+											</span>
+											<span>
+												Comunicación
+											</span>
+										</div>
+									</th>
+									<th id="form:bandejaEntrada:fechaEnvio" class="ui-state-default" role="columnheader">
+										<div class="ui-dt-c">
+											<span>
+												Fecha
+											</span>
+										</div>
+									</th>
+								</tr>
+							</thead>
+							<tfoot>
+								<tr>
+									<td id="form:bandejaEntrada_paginator_bottom" class="ui-paginator ui-paginator-bottom ui-widget-header" colspan="5">
+										<span class="ui-paginator-first ui-state-default ui-corner-all ui-state-disabled">
+											<span class="ui-icon ui-icon-seek-first">
+												
+											</span>
+										</span>
+										<span class="ui-paginator-prev ui-state-default ui-corner-all ui-state-disabled">
+											<span class="ui-icon ui-icon-seek-prev">
+												
+											</span>
+										</span>
+										<span class="ui-paginator-pages">
+											<span class="ui-paginator-page ui-state-default ui-state-active ui-corner-all">
+												1
+											</span>
+										</span>
+										<span class="ui-paginator-next ui-state-default ui-corner-all ui-state-disabled">
+											<span class="ui-icon ui-icon-seek-next">
+												
+											</span>
+										</span>
+										<span class="ui-paginator-last ui-state-default ui-corner-all ui-state-disabled">
+											<span class="ui-icon ui-icon-seek-end">
+												
+											</span>
+										</span>
+									</td>
+								</tr>
+							</tfoot>
+							{% for correo in correos %}
+							{% set i = 0 %}
+							
+							<tbody id="form:bandejaEntrada_data{{i}}" class="ui-datatable-data ui-widget-content">
+								<tr data-ri="0" data-rk="1" class="ui-widget-content ui-datatable-even" role="row" aria-selected="false">
+									<td role="gridcell">
+										<div class="ui-dt-c">
+												<a href="{{path('gestionmemorandos_correo',{'codigo':correo.comunicacion.tipo})}}">{{correo.comunicacion.leido}} 
+										</div>
+									</td>
+									<td role="gridcell">
+										<div class="ui-dt-c">
+												{{correo.comunicacion.remitente.nombre}}
+										</div>
+									</td>
+									<td role="gridcell">
+										<div class="ui-dt-c">
+												{{correo.comunicacion.asunto}} 
+										</div>
+									</td>
+									<td role="gridcell">
+										<div class="ui-dt-c">
+												{{correo.comunicacion.tipo}} 
+										</div>
+									</td>
+									<td role="gridcell">
+										<div class="ui-dt-c">
+												{{"now" | date("d/m/Y")}}
+										</div>
+									</td>
+								</tr>
+							</tbody>
+							{% set i = i + 1 %}
+							{% endfor %}
+						</table>
+						<input type="hidden" id="form:bandejaEntrada_selection" name="form:bandejaEntrada_selection" autocomplete="off" value="">
+						</div>
+					</form>
+		{% endblock %}

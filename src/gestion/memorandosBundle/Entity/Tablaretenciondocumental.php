@@ -1,0 +1,35 @@
+<?php
+
+namespace gestion\memorandosBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * Tablaretenciondocumental
+ *
+ * @ORM\Table(name="tablaretenciondocumental")
+ * @ORM\Entity
+ */
+class Tablaretenciondocumental
+{
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="idTabla", type="string", length=255, nullable=false)
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="IDENTITY")
+     */
+    private $idtabla;
+
+
+
+    /**
+     * Get idtabla
+     *
+     * @return string 
+     */
+    public function getIdtabla()
+    {
+        return $this->idtabla;
+    }
+}

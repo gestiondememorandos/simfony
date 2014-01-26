@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping http://doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
+  <entity name="Unidadorganizacional" table="unidadorganizacional">
+    <field name="nombre" type="string" column="nombre" length="255" nullable="false"/>
+    <field name="descripcion" type="string" column="descripcion" length="255" nullable="true"/>
+    <one-to-one field="idunidadorganizacional" target-entity="Quien">
+      <join-columns>
+        <join-column name="idUnidadOrganizacional" referenced-column-name="idQuien"/>
+      </join-columns>
+    </one-to-one>
+    <many-to-one field="unidadorganizacional" target-entity="Unidadorganizacional">
+      <join-columns>
+        <join-column name="unidadorganizacional" referenced-column-name="idUnidadOrganizacional"/>
+      </join-columns>
+    </many-to-one>
+    <many-to-one field="edificio" target-entity="Edificio">
+      <join-columns>
+        <join-column name="edificio" referenced-column-name="idEdificio"/>
+      </join-columns>
+    </many-to-one>
+  </entity>
+</doctrine-mapping>

@@ -1,0 +1,100 @@
+<?php
+
+namespace gestion\memorandosBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * Comunicacion
+ *
+ * @ORM\Table(name="comunicacion")
+ * @ORM\Entity
+ */
+class Comunicacion
+{
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="asunto", type="string", length=255, nullable=true)
+     */
+    private $asunto;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="contenidoCom", type="text", nullable=true)
+     */
+    private $contenidocom;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="leido", type="string", length=2, nullable=false)
+     */
+    private $leido;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="tipo", type="string", length=255, nullable=true)
+     */
+    private $tipo;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="unidadOrganizacional", type="string", length=255, nullable=true)
+     */
+    private $unidadorganizacional;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="destinatariosCom", type="string", length=500, nullable=true)
+     */
+    private $destinatarioscom;
+
+    /**
+     * @var \Contacto
+     *
+     * @ORM\ManyToOne(targetEntity="Contacto")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="remitente", referencedColumnName="idContacto")
+     * })
+     */
+    private $remitente;
+
+    /**
+     * @var \Documento
+     *
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="NONE")
+     * @ORM\OneToOne(targetEntity="Documento")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="idComunicacion", referencedColumnName="idDocumento")
+     * })
+     */
+    private $idcomunicacion;
+
+    /**
+     * @var \Estadocomunicacion
+     *
+     * @ORM\ManyToOne(targetEntity="Estadocomunicacion")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="estado", referencedColumnName="idEstadoComunicacion")
+     * })
+     */
+    private $estado;
+
+    /**
+     * @var \Fecha
+     *
+     * @ORM\ManyToOne(targetEntity="Fecha")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="fecha", referencedColumnName="idFecha")
+     * })
+     */
+    private $fecha;
+
+
+}

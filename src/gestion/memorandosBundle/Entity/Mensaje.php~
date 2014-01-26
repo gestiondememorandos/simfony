@@ -1,0 +1,45 @@
+<?php
+
+namespace gestion\memorandosBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * Mensaje
+ *
+ * @ORM\Table(name="mensaje")
+ * @ORM\Entity
+ */
+class Mensaje
+{
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="respuestaA", type="string", length=50, nullable=true)
+     */
+    private $respuestaa;
+
+    /**
+     * @var \Comunicacion
+     *
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="NONE")
+     * @ORM\OneToOne(targetEntity="Comunicacion")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="idMensaje", referencedColumnName="idComunicacion")
+     * })
+     */
+    private $idmensaje;
+
+    /**
+     * @var \Conversacion
+     *
+     * @ORM\ManyToOne(targetEntity="Conversacion")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="conversacion", referencedColumnName="idConversacion")
+     * })
+     */
+    private $conversacion;
+
+
+}

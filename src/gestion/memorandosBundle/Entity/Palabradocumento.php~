@@ -1,0 +1,45 @@
+<?php
+
+namespace gestion\memorandosBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * Palabradocumento
+ *
+ * @ORM\Table(name="palabradocumento")
+ * @ORM\Entity
+ */
+class Palabradocumento
+{
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="idPalabraClaveDocumento", type="string", length=255, nullable=false)
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="IDENTITY")
+     */
+    private $idpalabraclavedocumento;
+
+    /**
+     * @var \Palabraclave
+     *
+     * @ORM\ManyToOne(targetEntity="Palabraclave")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="palabraClave", referencedColumnName="idPalabraClave")
+     * })
+     */
+    private $palabraclave;
+
+    /**
+     * @var \Documento
+     *
+     * @ORM\ManyToOne(targetEntity="Documento")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="documento", referencedColumnName="idDocumento")
+     * })
+     */
+    private $documento;
+
+
+}

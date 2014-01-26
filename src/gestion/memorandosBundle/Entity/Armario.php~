@@ -1,0 +1,35 @@
+<?php
+
+namespace gestion\memorandosBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * Armario
+ *
+ * @ORM\Table(name="armario")
+ * @ORM\Entity
+ */
+class Armario
+{
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="descripcion", type="string", length=255, nullable=false)
+     */
+    private $descripcion;
+
+    /**
+     * @var \Deposito
+     *
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="NONE")
+     * @ORM\OneToOne(targetEntity="Deposito")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="idArmario", referencedColumnName="idDeposito")
+     * })
+     */
+    private $idarmario;
+
+
+}

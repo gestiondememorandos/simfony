@@ -1,0 +1,45 @@
+<?php
+
+namespace gestion\memorandosBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * Grupocontacto
+ *
+ * @ORM\Table(name="grupocontacto")
+ * @ORM\Entity
+ */
+class Grupocontacto
+{
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="idGrupoContacto", type="string", length=255, nullable=false)
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="IDENTITY")
+     */
+    private $idgrupocontacto;
+
+    /**
+     * @var \Contacto
+     *
+     * @ORM\ManyToOne(targetEntity="Contacto")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="contacto", referencedColumnName="idContacto")
+     * })
+     */
+    private $contacto;
+
+    /**
+     * @var \Grupo
+     *
+     * @ORM\ManyToOne(targetEntity="Grupo")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="grupo", referencedColumnName="idGrupo")
+     * })
+     */
+    private $grupo;
+
+
+}

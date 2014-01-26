@@ -1,0 +1,59 @@
+<?php
+
+namespace gestion\memorandosBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * Item
+ *
+ * @ORM\Table(name="item")
+ * @ORM\Entity
+ */
+class Item
+{
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="idItem", type="string", length=255, nullable=false)
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="IDENTITY")
+     */
+    private $iditem;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="texto", type="text", nullable=false)
+     */
+    private $texto;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="hlnt", type="string", length=255, nullable=false)
+     */
+    private $hlnt;
+
+    /**
+     * @var \Contenido
+     *
+     * @ORM\ManyToOne(targetEntity="Contenido")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="contenido", referencedColumnName="idContenido")
+     * })
+     */
+    private $contenido;
+
+    /**
+     * @var \Documento
+     *
+     * @ORM\ManyToOne(targetEntity="Documento")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="documento", referencedColumnName="idDocumento")
+     * })
+     */
+    private $documento;
+
+
+}

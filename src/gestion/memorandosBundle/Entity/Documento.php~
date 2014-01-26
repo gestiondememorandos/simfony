@@ -1,0 +1,128 @@
+<?php
+
+namespace gestion\memorandosBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * Documento
+ *
+ * @ORM\Table(name="documento")
+ * @ORM\Entity
+ */
+class Documento
+{
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="idDocumento", type="string", length=255, nullable=false)
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="IDENTITY")
+     */
+    private $iddocumento;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="titulo", type="string", length=255, nullable=true)
+     */
+    private $titulo;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="descripcion", type="string", length=255, nullable=true)
+     */
+    private $descripcion;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="edicion", type="string", length=255, nullable=true)
+     */
+    private $edicion;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="vigencia", type="string", length=255, nullable=true)
+     */
+    private $vigencia;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="estado", type="string", length=255, nullable=true)
+     */
+    private $estado;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="fechaCreacion", type="string", length=255, nullable=true)
+     */
+    private $fechacreacion;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="anexo", type="string", length=255, nullable=true)
+     */
+    private $anexo;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="tipo", type="string", length=255, nullable=true)
+     */
+    private $tipo;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="comentarios", type="text", nullable=true)
+     */
+    private $comentarios;
+
+    /**
+     * @var \Documento
+     *
+     * @ORM\ManyToOne(targetEntity="Documento")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="documentobase", referencedColumnName="idDocumento")
+     * })
+     */
+    private $documentobase;
+
+    /**
+     * @var \Orientacion
+     *
+     * @ORM\ManyToOne(targetEntity="Orientacion")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="orientacion", referencedColumnName="idOrientacion")
+     * })
+     */
+    private $orientacion;
+
+    /**
+     * @var \Tablaretenciondocumental
+     *
+     * @ORM\ManyToOne(targetEntity="Tablaretenciondocumental")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="tabladeretenciondocumental", referencedColumnName="idTabla")
+     * })
+     */
+    private $tabladeretenciondocumental;
+
+    /**
+     * @var \Tipodocumento
+     *
+     * @ORM\ManyToOne(targetEntity="Tipodocumento")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="tipoDocumento", referencedColumnName="idTipoDoc")
+     * })
+     */
+    private $tipodocumento;
+
+
+}

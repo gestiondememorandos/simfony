@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping http://doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
+  <entity name="Seriedocumental" table="seriedocumental">
+    <id name="codigo" type="string" column="codigo" length="255">
+      <generator strategy="IDENTITY"/>
+    </id>
+    <field name="nombre" type="string" column="nombre" length="255" nullable="false"/>
+    <field name="retencionanios" type="string" column="retencionAnios" length="20" nullable="false"/>
+    <field name="disposicionfinal" type="string" column="disposicionFinal" length="20" nullable="false"/>
+    <field name="procedimiento" type="string" column="procedimiento" length="255" nullable="false"/>
+    <many-to-one field="subserie" target-entity="Seriedocumental">
+      <join-columns>
+        <join-column name="subserie" referenced-column-name="codigo"/>
+      </join-columns>
+    </many-to-one>
+    <many-to-one field="tabladeretencion" target-entity="Tablaretenciondocumental">
+      <join-columns>
+        <join-column name="tabladeretencion" referenced-column-name="idTabla"/>
+      </join-columns>
+    </many-to-one>
+  </entity>
+</doctrine-mapping>

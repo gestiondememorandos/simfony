@@ -1,0 +1,73 @@
+<?php
+
+namespace gestion\memorandosBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * Seriedocumental
+ *
+ * @ORM\Table(name="seriedocumental")
+ * @ORM\Entity
+ */
+class Seriedocumental
+{
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="codigo", type="string", length=255, nullable=false)
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="IDENTITY")
+     */
+    private $codigo;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="nombre", type="string", length=255, nullable=false)
+     */
+    private $nombre;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="retencionAnios", type="string", length=20, nullable=false)
+     */
+    private $retencionanios;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="disposicionFinal", type="string", length=20, nullable=false)
+     */
+    private $disposicionfinal;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="procedimiento", type="string", length=255, nullable=false)
+     */
+    private $procedimiento;
+
+    /**
+     * @var \Tablaretenciondocumental
+     *
+     * @ORM\ManyToOne(targetEntity="Tablaretenciondocumental")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="tabladeretencion", referencedColumnName="idTabla")
+     * })
+     */
+    private $tabladeretencion;
+
+    /**
+     * @var \Seriedocumental
+     *
+     * @ORM\ManyToOne(targetEntity="Seriedocumental")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="subserie", referencedColumnName="codigo")
+     * })
+     */
+    private $subserie;
+
+
+}

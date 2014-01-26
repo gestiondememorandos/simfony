@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping http://doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
+  <entity name="Comunicaciondestinatario" table="comunicaciondestinatario">
+    <id name="idcomunicaciondestinatario" type="string" column="idComunicacionDestinatario" length="255">
+      <generator strategy="IDENTITY"/>
+    </id>
+    <field name="cc" type="string" column="cc" length="255" nullable="true"/>
+    <many-to-one field="destinatario" target-entity="Contacto">
+      <join-columns>
+        <join-column name="destinatario" referenced-column-name="idContacto"/>
+      </join-columns>
+    </many-to-one>
+    <many-to-one field="comunicacion" target-entity="Comunicacion">
+      <join-columns>
+        <join-column name="comunicacion" referenced-column-name="idComunicacion"/>
+      </join-columns>
+    </many-to-one>
+  </entity>
+</doctrine-mapping>

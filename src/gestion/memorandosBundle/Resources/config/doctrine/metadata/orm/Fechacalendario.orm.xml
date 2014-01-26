@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping http://doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
+  <entity name="Fechacalendario" table="fechacalendario">
+    <id name="idfechacalendario" type="string" column="idFechaCalendario" length="255">
+      <generator strategy="IDENTITY"/>
+    </id>
+    <many-to-one field="calendario" target-entity="Calendario">
+      <join-columns>
+        <join-column name="calendario" referenced-column-name="idCalendario"/>
+      </join-columns>
+    </many-to-one>
+    <many-to-one field="fecha" target-entity="Fecha">
+      <join-columns>
+        <join-column name="fecha" referenced-column-name="idFecha"/>
+      </join-columns>
+    </many-to-one>
+  </entity>
+</doctrine-mapping>

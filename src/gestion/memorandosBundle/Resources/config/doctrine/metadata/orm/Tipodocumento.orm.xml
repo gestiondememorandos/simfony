@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping http://doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
+  <entity name="Tipodocumento" table="tipodocumento">
+    <id name="idtipodoc" type="string" column="idTipoDoc" length="255">
+      <generator strategy="IDENTITY"/>
+    </id>
+    <field name="nombre" type="string" column="nombre" length="255" nullable="false"/>
+    <field name="descripcion" type="string" column="descripcion" length="255" nullable="true"/>
+    <many-to-one field="listachequeo" target-entity="Listachequeo">
+      <join-columns>
+        <join-column name="listachequeo" referenced-column-name="idListaChequeo"/>
+      </join-columns>
+    </many-to-one>
+    <many-to-one field="guia" target-entity="Guia">
+      <join-columns>
+        <join-column name="guia" referenced-column-name="idGuia"/>
+      </join-columns>
+    </many-to-one>
+    <many-to-one field="plantilla" target-entity="Plantilla">
+      <join-columns>
+        <join-column name="plantilla" referenced-column-name="idPlantilla"/>
+      </join-columns>
+    </many-to-one>
+    <many-to-one field="orientacion" target-entity="Orientacion">
+      <join-columns>
+        <join-column name="orientacion" referenced-column-name="idOrientacion"/>
+      </join-columns>
+    </many-to-one>
+  </entity>
+</doctrine-mapping>

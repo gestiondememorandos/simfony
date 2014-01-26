@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping http://doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
+  <entity name="Comunicacion" table="comunicacion">
+    <field name="asunto" type="string" column="asunto" length="255" nullable="true"/>
+    <field name="contenidocom" type="text" column="contenidoCom" nullable="true"/>
+    <field name="leido" type="string" column="leido" length="2" nullable="false"/>
+    <field name="tipo" type="string" column="tipo" length="255" nullable="true"/>
+    <field name="unidadorganizacional" type="string" column="unidadOrganizacional" length="255" nullable="true"/>
+    <field name="destinatarioscom" type="string" column="destinatariosCom" length="500" nullable="true"/>
+    <one-to-one field="idcomunicacion" target-entity="Documento">
+      <join-columns>
+        <join-column name="idComunicacion" referenced-column-name="idDocumento"/>
+      </join-columns>
+    </one-to-one>
+    <many-to-one field="fecha" target-entity="Fecha">
+      <join-columns>
+        <join-column name="fecha" referenced-column-name="idFecha"/>
+      </join-columns>
+    </many-to-one>
+    <many-to-one field="estado" target-entity="Estadocomunicacion">
+      <join-columns>
+        <join-column name="estado" referenced-column-name="idEstadoComunicacion"/>
+      </join-columns>
+    </many-to-one>
+    <many-to-one field="remitente" target-entity="Contacto">
+      <join-columns>
+        <join-column name="remitente" referenced-column-name="idContacto"/>
+      </join-columns>
+    </many-to-one>
+  </entity>
+</doctrine-mapping>

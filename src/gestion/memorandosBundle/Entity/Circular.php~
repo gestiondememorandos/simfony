@@ -1,0 +1,35 @@
+<?php
+
+namespace gestion\memorandosBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * Circular
+ *
+ * @ORM\Table(name="circular")
+ * @ORM\Entity
+ */
+class Circular
+{
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="numeroRadicado", type="string", length=50, nullable=true)
+     */
+    private $numeroradicado;
+
+    /**
+     * @var \Comunicacion
+     *
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="NONE")
+     * @ORM\OneToOne(targetEntity="Comunicacion")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="idCircular", referencedColumnName="idComunicacion")
+     * })
+     */
+    private $idcircular;
+
+
+}

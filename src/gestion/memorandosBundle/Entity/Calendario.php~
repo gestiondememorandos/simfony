@@ -1,0 +1,52 @@
+<?php
+
+namespace gestion\memorandosBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * Calendario
+ *
+ * @ORM\Table(name="calendario")
+ * @ORM\Entity
+ */
+class Calendario
+{
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="idCalendario", type="string", length=255, nullable=false)
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="IDENTITY")
+     */
+    private $idcalendario;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="nombre", type="string", length=255, nullable=false)
+     */
+    private $nombre;
+
+    /**
+     * @var \Agenda
+     *
+     * @ORM\ManyToOne(targetEntity="Agenda")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="agenda", referencedColumnName="idAgenda")
+     * })
+     */
+    private $agenda;
+
+    /**
+     * @var \Calendario
+     *
+     * @ORM\ManyToOne(targetEntity="Calendario")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="calendario", referencedColumnName="idCalendario")
+     * })
+     */
+    private $calendario;
+
+
+}

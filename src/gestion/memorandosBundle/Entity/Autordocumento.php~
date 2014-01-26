@@ -1,0 +1,52 @@
+<?php
+
+namespace gestion\memorandosBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * Autordocumento
+ *
+ * @ORM\Table(name="autordocumento")
+ * @ORM\Entity
+ */
+class Autordocumento
+{
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="idAutorDoc", type="string", length=255, nullable=false)
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="IDENTITY")
+     */
+    private $idautordoc;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="descripcionModificacion", type="string", length=255, nullable=false)
+     */
+    private $descripcionmodificacion;
+
+    /**
+     * @var \Actor
+     *
+     * @ORM\ManyToOne(targetEntity="Actor")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="actor", referencedColumnName="idActor")
+     * })
+     */
+    private $actor;
+
+    /**
+     * @var \Documento
+     *
+     * @ORM\ManyToOne(targetEntity="Documento")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="documento", referencedColumnName="idDocumento")
+     * })
+     */
+    private $documento;
+
+
+}

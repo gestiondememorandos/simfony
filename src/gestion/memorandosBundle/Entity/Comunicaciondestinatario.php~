@@ -1,0 +1,52 @@
+<?php
+
+namespace gestion\memorandosBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * Comunicaciondestinatario
+ *
+ * @ORM\Table(name="comunicaciondestinatario")
+ * @ORM\Entity
+ */
+class Comunicaciondestinatario
+{
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="idComunicacionDestinatario", type="string", length=255, nullable=false)
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="IDENTITY")
+     */
+    private $idcomunicaciondestinatario;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="cc", type="string", length=255, nullable=true)
+     */
+    private $cc;
+
+    /**
+     * @var \Comunicacion
+     *
+     * @ORM\ManyToOne(targetEntity="Comunicacion")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="comunicacion", referencedColumnName="idComunicacion")
+     * })
+     */
+    private $comunicacion;
+
+    /**
+     * @var \Contacto
+     *
+     * @ORM\ManyToOne(targetEntity="Contacto")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="destinatario", referencedColumnName="idContacto")
+     * })
+     */
+    private $destinatario;
+
+
+}

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping http://doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
+  <entity name="Autordocumento" table="autordocumento">
+    <id name="idautordoc" type="string" column="idAutorDoc" length="255">
+      <generator strategy="IDENTITY"/>
+    </id>
+    <field name="descripcionmodificacion" type="string" column="descripcionModificacion" length="255" nullable="false"/>
+    <many-to-one field="documento" target-entity="Documento">
+      <join-columns>
+        <join-column name="documento" referenced-column-name="idDocumento"/>
+      </join-columns>
+    </many-to-one>
+    <many-to-one field="actor" target-entity="Actor">
+      <join-columns>
+        <join-column name="actor" referenced-column-name="idActor"/>
+      </join-columns>
+    </many-to-one>
+  </entity>
+</doctrine-mapping>

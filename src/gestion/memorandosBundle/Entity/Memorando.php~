@@ -1,0 +1,35 @@
+<?php
+
+namespace gestion\memorandosBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * Memorando
+ *
+ * @ORM\Table(name="memorando")
+ * @ORM\Entity
+ */
+class Memorando
+{
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="numeroRadicado", type="string", length=50, nullable=true)
+     */
+    private $numeroradicado;
+
+    /**
+     * @var \Comunicacion
+     *
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="NONE")
+     * @ORM\OneToOne(targetEntity="Comunicacion")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="idMemorando", referencedColumnName="idComunicacion")
+     * })
+     */
+    private $idmemorando;
+
+
+}

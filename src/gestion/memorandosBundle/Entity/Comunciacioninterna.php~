@@ -1,0 +1,35 @@
+<?php
+
+namespace gestion\memorandosBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * Comunciacioninterna
+ *
+ * @ORM\Table(name="comunciacioninterna")
+ * @ORM\Entity
+ */
+class Comunciacioninterna
+{
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="descripcion", type="string", length=255, nullable=true)
+     */
+    private $descripcion;
+
+    /**
+     * @var \Comunicacion
+     *
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="NONE")
+     * @ORM\OneToOne(targetEntity="Comunicacion")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="idComunicacionI", referencedColumnName="idComunicacion")
+     * })
+     */
+    private $idcomunicacioni;
+
+
+}

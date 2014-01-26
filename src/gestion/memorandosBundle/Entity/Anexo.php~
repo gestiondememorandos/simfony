@@ -1,0 +1,42 @@
+<?php
+
+namespace gestion\memorandosBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * Anexo
+ *
+ * @ORM\Table(name="anexo")
+ * @ORM\Entity
+ */
+class Anexo
+{
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="idAnexo", type="string", length=255, nullable=false)
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="IDENTITY")
+     */
+    private $idanexo;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="ruta", type="string", length=255, nullable=true)
+     */
+    private $ruta;
+
+    /**
+     * @var \Documento
+     *
+     * @ORM\ManyToOne(targetEntity="Documento")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="documento", referencedColumnName="idDocumento")
+     * })
+     */
+    private $documento;
+
+
+}

@@ -1,0 +1,32 @@
+<?php
+
+namespace gestion\memorandosBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * Quien
+ *
+ * @ORM\Table(name="quien")
+ * @ORM\Entity
+ */
+class Quien
+{
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="idQuien", type="string", length=255, nullable=false)
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="IDENTITY")
+     */
+    private $idquien;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="tipo", type="string", length=255, nullable=true)
+     */
+    private $tipo;
+
+
+}

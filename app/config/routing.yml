@@ -1,0 +1,3 @@
+gestionmemorandos:
+    resource: "@gestionmemorandosBundle/Resources/config/routing.php"
+    prefix:   /

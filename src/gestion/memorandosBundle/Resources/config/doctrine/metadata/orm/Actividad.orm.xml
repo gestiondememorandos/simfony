@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping http://doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
+  <entity name="Actividad" table="actividad">
+    <id name="idactividad" type="string" column="idActividad" length="255">
+      <generator strategy="IDENTITY"/>
+    </id>
+    <field name="nombre" type="string" column="nombre" length="255" nullable="false"/>
+    <field name="descripcion" type="string" column="descripcion" length="255" nullable="true"/>
+    <many-to-one field="estado" target-entity="Estadoactividad">
+      <join-columns>
+        <join-column name="estado" referenced-column-name="idEstadoActividad"/>
+      </join-columns>
+    </many-to-one>
+    <many-to-one field="memorando" target-entity="Memorando">
+      <join-columns>
+        <join-column name="memorando" referenced-column-name="idMemorando"/>
+      </join-columns>
+    </many-to-one>
+  </entity>
+</doctrine-mapping>

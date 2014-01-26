@@ -1,0 +1,35 @@
+<?php
+
+namespace gestion\memorandosBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * Agenda
+ *
+ * @ORM\Table(name="agenda")
+ * @ORM\Entity
+ */
+class Agenda
+{
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="descripcion", type="string", length=255, nullable=true)
+     */
+    private $descripcion;
+
+    /**
+     * @var \Paquete
+     *
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="NONE")
+     * @ORM\OneToOne(targetEntity="Paquete")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="idAgenda", referencedColumnName="idPaquete")
+     * })
+     */
+    private $idagenda;
+
+
+}

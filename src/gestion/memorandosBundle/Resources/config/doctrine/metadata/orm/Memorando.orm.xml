@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping http://doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
+  <entity name="Memorando" table="memorando">
+    <field name="numeroradicado" type="string" column="numeroRadicado" length="50" nullable="true"/>
+    <one-to-one field="idmemorando" target-entity="Comunicacion">
+      <join-columns>
+        <join-column name="idMemorando" referenced-column-name="idComunicacion"/>
+      </join-columns>
+    </one-to-one>
+  </entity>
+</doctrine-mapping>

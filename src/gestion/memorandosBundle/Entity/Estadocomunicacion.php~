@@ -1,0 +1,39 @@
+<?php
+
+namespace gestion\memorandosBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * Estadocomunicacion
+ *
+ * @ORM\Table(name="estadocomunicacion")
+ * @ORM\Entity
+ */
+class Estadocomunicacion
+{
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="idEstadoComunicacion", type="string", length=255, nullable=false)
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="IDENTITY")
+     */
+    private $idestadocomunicacion;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="estado", type="string", length=255, nullable=false)
+     */
+    private $estado;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="descripcion", type="string", length=255, nullable=true)
+     */
+    private $descripcion;
+
+
+}

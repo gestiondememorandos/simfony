@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping http://doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
+  <entity name="Direccion" table="direccion">
+    <id name="idDireccion" type="string" column="id_direccion" length="255">
+      <generator strategy="IDENTITY"/>
+    </id>
+    <field name="direccion" type="string" column="direccion" length="255" nullable="false"/>
+    <many-to-one field="ciudad" target-entity="Ciudad">
+      <join-columns>
+        <join-column name="ciudad" referenced-column-name="idCiudad"/>
+      </join-columns>
+    </many-to-one>
+  </entity>
+</doctrine-mapping>
